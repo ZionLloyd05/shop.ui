@@ -18,7 +18,7 @@ export const registerUser = (userData, history) => dispatch => {
 }
 
 // Login user
-export const loginUser = (userData) => dispatch => {
+export const loginUser = (userData, history) => dispatch => {
     axios.post('/api/v1.0/auth/login', userData)
     .then(res => {
         // save token to local storage
@@ -40,6 +40,8 @@ export const loginUser = (userData) => dispatch => {
 
             window.location.href = '/login';
         }
+
+        history.push('/');
     })
     .catch(err => 
         dispatch({
@@ -59,6 +61,8 @@ export const logoutUser = () => dispatch => {
 
     // set curr user to {} and is authenticated = false
     dispatch(setCurrentUser({}));
+
+    window.location.href = '/login';
 }
 
 // set logged in user

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import ProductCollection from './ProductCollection';
 
 class Landing extends Component {
 
@@ -16,6 +17,13 @@ class Landing extends Component {
         }else{
             salutaion = 'Friend';
         }
+        const { isAuthenticated } = this.props.auth;
+        const authbuttons = (
+            <div>
+                <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
+                <Link to="/login" className="btn btn-lg btn-light">Login</Link>
+            </div>
+          );
 
         return (
             <main role="main">
@@ -25,14 +33,13 @@ class Landing extends Component {
                     <h1 className="display-5 mb-4">Hi, {salutaion}</h1>
                     <p className="lead text-muted">We've got so much more in stock just for you today.</p>
                     <hr />
-                    <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
-                    <Link to="/login" className="btn btn-lg btn-light">Login</Link>
+                    {isAuthenticated ? '' : authbuttons}
                     </div>
                 </section>
 
                 <div className="album py-5 bg-light">
                     <div className="container">
-
+                        <ProductCollection />
                     </div>
                 </div>
 

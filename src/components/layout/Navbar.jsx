@@ -17,6 +17,12 @@ class Navbar extends Component {
         
         const { isAuthenticated } = this.props.auth;
 
+        const adminLink = (
+          <li className="nav-item">
+              <Link to="/dashboard" className="nav-link">Dashboard</Link>
+          </li>
+        );
+
         const authLinks = (
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -25,6 +31,7 @@ class Navbar extends Component {
             <li className="nav-item">
               <p href="" onClick={this.onLogoutClick} className="nav-link logout">Logout</p>
             </li>
+            { this.props.auth.user.isadmin ? adminLink : ''}
           </ul>
         );
 

@@ -49,3 +49,7 @@ form{
 .logout{
   cursor: pointer;
 }
+
+.card {
+  margin-right: 20px;
+}
