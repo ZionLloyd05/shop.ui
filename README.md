@@ -1,5 +1,11 @@
 # Mock Shop Store UI
 
+## Admin Credentials
+
+- Email: zionlloyd@gmail.com
+
+- Password: herman123
+
 ## Features
 
 (Note: more could be done..)
