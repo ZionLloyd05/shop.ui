@@ -6,7 +6,7 @@ import { GET_PRODUCTS, PRODUCT_LOADING, GET_ERRORS } from './type';
 export const getAllProduct = () => dispatch => {
     dispatch(setProductLoading());
 
-    axios.get('https://mockshopapi.herokuapp.com/api/v1.0/products')
+    axios.get('/api/v1.0/products')
         .then(res => dispatch({
             type: GET_PRODUCTS,
             payload: res.data
@@ -21,7 +21,7 @@ export const getAllProduct = () => dispatch => {
 export const createProduct = (productData, history) => dispatch => {
     dispatch(setProductLoading());
 
-    axios.post('https://mockshopapi.herokuapp.com/api/v1.0/products', productData)
+    axios.post('/api/v1.0/products', productData)
         .then(res => history.push('/dashboard'))
         .catch(err => dispatch({
             type: GET_ERRORS,

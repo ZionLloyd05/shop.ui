@@ -7,7 +7,7 @@ import store from '../store';
 // Register user
 export const registerUser = (userData, history) => dispatch => {
     
-    axios.post('https://mockshopapi.herokuapp.com/api/v1.0/auth/register', userData)
+    axios.post('/api/v1.0/auth/register', userData)
         .then(res => history.push('/login'))
         .catch(err => 
             dispatch({
@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 // Login user
 export const loginUser = (userData, history) => dispatch => {
-    axios.post('https://mockshopapi.herokuapp.com/api/v1.0/auth/login', userData)
+    axios.post('/api/v1.0/auth/login', userData)
     .then(res => {
         // save token to local storage
         const {data} = res;
